@@ -37,14 +37,13 @@ class Game
     player_roll < @last_roll
   end
 
+  def start
+    while !@won
+      player_turn
+    end
+  end
+
 end
 
 game = Game.new('Jamie', 'John Lennon', 4, 0)
-
-def lets_play(game)
-  until game.won
-    # binding.pry
-    game.player_turn
-  end
-end
-lets_play(game)
+game.start
